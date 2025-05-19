@@ -3,7 +3,8 @@ import Products from "./Products";
 
 const LeftSection = () => {
   return (
-    <div>
+    <div className="w-[60%] m-auto">
+      <h1 className="text-primary-rose font-bold text-4xl mb-2 ">Desserts</h1>
       <Products />
     </div>
   );

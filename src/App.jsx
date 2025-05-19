@@ -4,7 +4,7 @@ import RightSection from "./Components/RightSection";
 
 const App = () => {
   return (
-    <div className="flex m-auto space-between w-[90%] ">
+    <div className="flex m-auto space-between w-[95%] ">
       <LeftSection />
       <RightSection />
     </div>
