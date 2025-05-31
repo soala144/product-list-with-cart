@@ -2,7 +2,7 @@ import React from "react";
 
 const OrderButton = ({ children, dispatch }) => {
   const openConfirmOrderModal = () => {
-    dispatch({ type: "OPEN_MODAL" });
+    dispatch({ type: "MODAL_FUNCTION" });
   };
   return (
     <button

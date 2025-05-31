@@ -9,7 +9,7 @@ const RightSection = ({ cart, dispatch }) => {
   const total = cart.reduce((acc, item) => acc + item.totalPrice, 0);
   return (
     <div
-      className=" w-full md:w-[35%] rounded-xl min-h-[299px] max-h-[550px] h-auto overflow-y-auto p-6 lg:max-w-[384px] mt-4 bg-white  "
+      className=" w-full md:w-[35%] rounded-xl min-h-[299px] max-h-[550px] h-auto overflow-y-auto p-6 lg:max-w-[380px] mt-4 bg-white  "
       id="cart"
     >
       <h3 className="text-2xl text-red font-bold mb-5">

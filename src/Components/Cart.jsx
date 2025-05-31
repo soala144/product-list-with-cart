@@ -3,7 +3,6 @@ import React from "react";
 const Cart = ({ cartItem, dispatch }) => {
   const handleDelete = () => {
     dispatch({ type: "DELETE_ITEM", payload: cartItem.id });
-    console.log("dispatched delete Item for");
   };
   return (
     <div key={cartItem.id}>
@@ -25,7 +24,7 @@ const Cart = ({ cartItem, dispatch }) => {
 
         <figure
           className="group grid place-content-center w-[1.125rem] h-[1.125rem] rounded-full border border-dusty-rose hover:border-primary-rose hover:stroke-primary-rose  cursor-pointer"
-          onClick={() => console.log(cartItem.id)}
+          onClick={handleDelete}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +39,6 @@ const Cart = ({ cartItem, dispatch }) => {
             />
           </svg>
         </figure>
-        <button onClick={handleDelete}>X</button>
       </li>
       <div className="flex w-full h-0.5 bg-gray-50 mt-4"></div>
     </div>

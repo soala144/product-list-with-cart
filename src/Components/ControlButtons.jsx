@@ -4,7 +4,7 @@ const ControlButtons = ({ cartItem, handleIncrease, handleDecrease }) => {
   return (
     <div className="absolute top-full bg-red  left-1/2 transform translate-[-50%] w-40 h-[2.75rem] rounded-full">
       <div className="flex mx-4 items-center justify-between py-2  ">
-        <button onClick={handleDecrease}>
+        <button onClick={handleDecrease} className="cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="10"
@@ -20,7 +20,7 @@ const ControlButtons = ({ cartItem, handleIncrease, handleDecrease }) => {
         </button>
 
         <p>{cartItem.quantity}</p>
-        <button onClick={handleIncrease}>
+        <button onClick={handleIncrease} className="cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="10"

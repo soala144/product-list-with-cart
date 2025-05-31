@@ -14,6 +14,7 @@ const Product = ({ product, dispatch, cart }) => {
   const handleDecrease = () => {
     dispatch({ type: "DECREASE_QUANTITY", payload: product.id });
   };
+
   const cartItem = cart.find((item) => item.id === product.id);
   return (
     <div className="flex flex-col mb-3" key={product.id}>
@@ -33,7 +34,7 @@ const Product = ({ product, dispatch, cart }) => {
           />
         ) : (
           <button
-            className="absolute top-full bg-pale-rose border border-red left-1/2 transform translate-[-50%] w-40 h-[2.75rem] rounded-full"
+            className="absolute top-full bg-pale-rose border border-red left-1/2 transform translate-[-50%] w-40 h-[2.75rem] rounded-full cursor-pointer"
             onClick={handleAdd}
           >
             <div className="flex flex-row space-between gap-1.5 pl-5">

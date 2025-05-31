@@ -65,15 +65,18 @@ export function cartReducer(state, action) {
     }
 
     case "DELETE_ITEM": {
-     
-
-      return { ...state, cart: state.cart.filter(
+      const deletedCart = state.cart.filter(
         (item) => item.id !== action.payload
-      ) };
+      );
+      return { ...state, cart: deletedCart };
     }
 
-    case "OPEN_MODAL": {
-      return { ...state, isModalOpen: true };
+    case "MODAL_FUNCTION": {
+      return { ...state, isModalOpen: !state.isModalOpen };
+    }
+
+    case "RESET_CART" : {
+      return {...state, isModalOpen: false, cart: []}
     }
 
     default:

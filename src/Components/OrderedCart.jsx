@@ -10,6 +10,7 @@ const OrderedCart = ({ total, cart, dispatch }) => {
       {cart.map((cartItem) => (
         <Cart dispatch={dispatch} cartItem={cartItem} key={cartItem.id} />
       ))}
+
       <TotalPriceOrdered total={total} />
       <CartCarbonNeutralMessage />
       <OrderButton dispatch={dispatch}>Confirm Order</OrderButton>
