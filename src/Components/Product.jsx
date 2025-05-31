@@ -1,12 +1,23 @@
 import React from "react";
 import useResponsiveImage from "../CustomHooks/useResponsiveImage";
+import ControlButtons from "./ControlButtons";
 
-const Product = ({ product }) => {
+const Product = ({ product, dispatch, cart }) => {
   const imageSrc = useResponsiveImage(product.image);
+
+  const handleAdd = () => {
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
+  const handleIncrease = () => {
+    dispatch({ type: "INCREASE_QUANTITY", payload: product.id });
+  };
+  const handleDecrease = () => {
+    dispatch({ type: "DECREASE_QUANTITY", payload: product.id });
+  };
+  const cartItem = cart.find((item) => item.id === product.id);
   return (
-    <div className="flex flex-col mb-3">
+    <div className="flex flex-col mb-3" key={product.id}>
       <div className="relative">
-        {console.log(product.category)}
         <figure>
           <img
             src={imageSrc}
@@ -14,12 +25,25 @@ const Product = ({ product }) => {
             className="w-full rounded-[0.5rem]"
           />
         </figure>
-        <button className="absolute top-full bg-pale-rose border border-red left-1/2 transform translate-[-50%] w-40 h-[2.75rem] rounded-full">
-          <div className="flex flex-row space-between gap-1.5 pl-5">
-            <img src="./images/icon-add-to-cart.svg" alt="" />
-            <p>Add to Cart</p>
-          </div>
-        </button>
+        {cartItem ? (
+          <ControlButtons
+            cartItem={cartItem}
+            handleIncrease={handleIncrease}
+            handleDecrease={handleDecrease}
+          />
+        ) : (
+          <button
+            className="absolute top-full bg-pale-rose border border-red left-1/2 transform translate-[-50%] w-40 h-[2.75rem] rounded-full"
+            onClick={handleAdd}
+          >
+            <div className="flex flex-row space-between gap-1.5 pl-5">
+              <>
+                <img src="./images/icon-add-to-cart.svg" alt="" />
+                <p>Add to Cart</p>
+              </>
+            </div>
+          </button>
+        )}
       </div>
       <div className="mt-6">
         <p className="text-sm text-muted-rose font-light mb-[4px]">
