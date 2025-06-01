@@ -4,16 +4,19 @@ import CartCarbonNeutralMessage from "./CartCarbonNeutralMessage";
 import OrderButton from "./OrderButton";
 import Cart from "./Cart";
 
-const OrderedCart = ({ total, cart, dispatch }) => {
+const OrderedCart = ({ cart, dispatch }) => {
+  const openConfirmOrderModal = () => {
+    dispatch({ type: "MODAL_FUNCTION" });
+  };
   return (
     <div>
       {cart.map((cartItem) => (
         <Cart dispatch={dispatch} cartItem={cartItem} key={cartItem.id} />
       ))}
 
-      <TotalPriceOrdered total={total} />
+      <TotalPriceOrdered cart={cart} />
       <CartCarbonNeutralMessage />
-      <OrderButton dispatch={dispatch}>Confirm Order</OrderButton>
+      <OrderButton handleOrderFunction={openConfirmOrderModal}>Confirm Order</OrderButton>
     </div>
   );
 };

@@ -6,7 +6,7 @@ import OrderedCart from "./OrderedCart";
 import EmptyCart from "./EmptyCart";
 
 const RightSection = ({ cart, dispatch }) => {
-  const total = cart.reduce((acc, item) => acc + item.totalPrice, 0);
+
   return (
     <div
       className=" w-full md:w-[35%] rounded-xl min-h-[299px] max-h-[550px] h-auto overflow-y-auto p-6 lg:max-w-[380px] mt-4 bg-white  "
@@ -18,7 +18,7 @@ const RightSection = ({ cart, dispatch }) => {
       {cart.length === 0 ? (
         <EmptyCart />
       ) : (
-        <OrderedCart cart={cart} total={total} dispatch={dispatch} />
+        <OrderedCart cart={cart}  dispatch={dispatch} />
       )}
     </div>
   );
